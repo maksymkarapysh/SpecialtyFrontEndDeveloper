@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002_Работа с документами</title>
+
+</head>
+<body>
+		<div id="paragraphs"></div>
+		<button id="btn">Добавить параграф</button>
+		
+		<script type="text/javascript">
+		"use strict";
+
+		var paragraphs = document.getElementById('paragraphs');
+		var btn = document.getElementById('btn');
+		var counter = 1;
+
+		btn.onclick = function createNewChild() {
+				if (paragraphs.childNodes.length < 10) {
+					var p = document.createElement('p');
+					paragraphs.appendChild(p);
+					p.innerHTML = "Новый абзац " + counter++;
+				} else {
+					for (var i = 0; i < paragraphs.childNodes.length; i++) {
+						if (paragraphs.childNodes[i].nodeName == "P") {
+							paragraphs.removeChild(paragraphs.childNodes[i]);
+							i--;
+						}
+						counter = 1;
+					}
+				}
+			}
+
+	</script>
+</body>
+</html>
