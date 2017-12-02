@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003_Window. Регулярные выражения</title>
+	<style type="text/css">
+		body {
+			width: 100%;
+			height: auto;
+		}
+		.wrapper {
+			position: absolute;
+			width: 500px;
+			height: 200px;
+			top: 50%;
+			left: 50%;
+			margin-top: -100px;
+			margin-left: -250px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+
+		<div class="wrapper">
+			<h1 id="time"></h1>
+
+			<button id="start">Старт</button>
+			<button id="stop">Стоп</button>
+			<button id="reset">Сбросить</button>
+		</div>
+
+		<script type="text/javascript">
+		var time = document.getElementById("time"),
+				start = document.getElementById("start"),
+				stop = document.getElementById("stop"),
+				reset = document.getElementById("reset"),
+				min = 0,
+				sec = 0,
+				mil = 0;
+
+		time.innerHTML = min + "0:" + sec + "0:0" + mil;
+
+		function stopwatch() {
+			if (min == 0 && sec == 0 && mil == 0) {
+				time.innerHTML = "00:00:00";
+			} else if(sec < 10 && mil < 10) {
+				time.innerHTML = "0" + min.toString() + ":0" + sec.toString() + ":0" + mil.toString();
+			} else if(sec < 10 && mil >= 10) {
+				time.innerHTML = "0" + min.toString() + ":0" + sec.toString() + ":" + mil.toString();
+			}	else if(sec >= 10 && mil > 10) {
+				time.innerHTML = "0" + min.toString() + ":" + sec.toString() + ":" + mil.toString();
+			}
+			mil++;
+
+			if (mil > 99) {
+				mil = 0;
+				sec++;
+			} else if(sec > 59) {
+				sec = 0;
+				min++;
+			}
+
+			console.log(time);
+		}
+
+		start.onclick = function() {
+			startwatch = setInterval(stopwatch, 0);
+		}
+		stop.onclick = function() {
+			clearInterval(startwatch);
+		}
+		reset.onclick = function() {
+			min = 0;
+			sec = 0;
+			mil = 0;
+			time.innerHTML = "00:00:00";
+		}
+		</script>
+</body>
+</html>
