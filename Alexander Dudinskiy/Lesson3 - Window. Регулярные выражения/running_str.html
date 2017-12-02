@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задание 5 - Бегущая строка</title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+	<input type="text" id="type_str">
+	<button id="start">Запуск бегущей строки</button>
+
+	<script type="text/javascript">
+		var typed = document.getElementById("type_str"); //Значение написанное в input
+		var start = document.getElementById("start");
+
+		start.onclick = function() {
+			var runningStr = document.createElement("marquee");
+			runningStr.setAttribute("behavior", "alternate");
+			runningStr.setAttribute("direction", "right");
+			runningStr.innerHTML = typed.value;
+			document.body.appendChild(runningStr);
+		}
+
+	</script>
+</body>
+</html>
