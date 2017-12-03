@@ -1,0 +1,17 @@
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 250px;
+  text-align: center;
+  margin-top: -125px;
+  margin-left: -250px;
+}
+input {
+	width: 50%;
+	height: 25px;
+}
+.remember_me input {
+	width: 25%;
+}

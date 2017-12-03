@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002 - форма</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<form>
+    <p><input id="login" type="text" name="login" placeholder="Логин"></p>
+    <p><input id="pass" type="password" name="password" placeholder="Пароль"></p>
+    <p class="remember_me">
+      <label>
+        <input id="chckbx" type="checkbox" name="remember_me" id="remember_me">
+        Запомнить меня
+      </label>
+    </p>
+    <p><input id="enter" type="button" value="Вход"></p>
+    <p id="answer">Для входа на сайт введите корректные данные</p>
+  </form>
+
+	<script type="text/javascript">
+		var login = document.getElementById("login");
+		var password = document.getElementById("pass");
+		var message = document.getElementById("answer");
+
+		document.getElementById("enter").onclick = function() {
+			// Валидация
+			if (login.lenth == 0 || password.length == 0) {
+				login.style.border = "1px solid red";
+				password.style.border = "1px solid red";
+				message.innerHTML = "Вы не заполнили поля логин и пароль";
+			}	else if (login.value != "admin" || password.value != "12345") {
+				message.innerHTML = "Введите корректные логин и пароль»";
+				login.style.border = "1px solid red";
+				password.style.border = "1px solid red";
+			} else {
+				message.innerHTML = "Вы авторизированы»";
+				login.style.border = "1px solid green";
+				password.style.border = "1px solid green";
+			}
+
+			// обнуляем поля
+			login.value = "";
+			password.value = "";
+		}
+
+	</script>
+</body>
+</html>
