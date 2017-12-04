@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gallery</title>
+	<style>
+		body {
+			text-align: center;
+		}
+		.gallery {
+			width: 800px;
+			height: 600px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.gallery img {
+			display: none;
+		}
+		.gallery img:first-child {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<span id="numeration"></span>
+	<div class="gallery">
+		<img src="img/image-1.jpg" alt="">
+		<img src="img/image-2.jpg" alt="">
+		<img src="img/image-3.jpg" alt="">
+		<img src="img/image-4.jpg" alt="">
+		<img src="img/image-5.jpg" alt="">
+		<img src="img/image-6.jpg" alt="">
+		<img src="img/image-7.jpg" alt="">
+
+		<button class="btn_back">Назад</button>
+		<button class="btn_next">Вперёд</button>
+	</div>
+	
+</body>
+	<script type="text/javascript">
+		var gallery = document.querySelectorAll(".gallery img")
+		var btn_back = document.querySelector(".btn_back");
+		var btn_next = document.querySelector(".btn_next");
+		var num = document.getElementById("numeration");
+		var i = 0;
+
+
+		num.textContent = i + 1 + " / " + gallery.length;
+
+		btn_back.onclick = function() {
+			gallery[i].style.display = "none";
+			i--;	
+
+			if (i < 0) {
+				i = gallery.length - 1;				
+			}
+
+			gallery[i].style.display = "block";
+			num.textContent = i + 1 + " / " + gallery.length;
+		}
+		btn_next.onclick = function() {
+			gallery[i].style.display = "none";
+			i++;	
+
+			if (i >= gallery.length) {
+				i = 0;				
+			}
+
+			gallery[i].style.display = "block";
+			num.textContent = i + 1 + " / " + gallery.length;
+		};
+
+	</script>
+</html>
