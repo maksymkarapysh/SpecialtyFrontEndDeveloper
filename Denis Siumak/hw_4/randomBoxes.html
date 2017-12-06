@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>random boxes</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        transition: .8s;
+      }
+      #one {
+        background-color: red;
+      }
+      #second {
+        background-color: green;
+      }
+      #tree {
+        background-color: cyan;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var box = document.getElementsByClassName("box"),
+            widthW = window.innerWidth,
+            heightW = window.innerHeight;
+
+        function changePosition() {
+          for (var i = 0; i < box.length; i++) {
+            box[i].style.left = random(5, widthW-100) + "px";
+            box[i].style.top = random(5, heightW-100) + "px";
+          }
+        }
+        changePosition();
+        setInterval(changePosition, 1000);
+      }
+      function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="box" id="one"></div>
+    <div class="box" id="second"></div>
+    <div class="box" id="tree"></div>
+
+  </body>
+</html>

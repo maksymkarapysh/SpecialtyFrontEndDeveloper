@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sum</title>
+    <script>
+      //var str = prompt("Enter string, example 10 + 20");
+      var str1 = "10 + 50";
+      var regExp = '[-+*/]';
+
+      var operator = str1.match(regExp);
+        operator = operator.join("");
+      var arr = str1.split(operator);
+      arr[0] = parseInt(arr[0]);
+      arr[1] = parseInt(arr[1]);
+
+      switch(operator) {
+      case "+":
+        document.write(arr[0] + arr[1]);
+        break;
+      case "-":
+        document.write(arr[0] - arr[1]);
+        break;
+      case "*":
+        document.write(arr[0] * arr[1]);
+        break;
+      case "/":
+        document.write(arr[0] / arr[1]);
+        break;
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

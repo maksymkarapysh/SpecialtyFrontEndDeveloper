@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dataChangeBg</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="time"></p>
+      <p id="color"></p>
+    </div>
+    <script>
+      window.onload = function() {
+        var time = document.getElementById("time"),
+          colorText = document.getElementById("color");
+
+        function getDate(){
+          var date = new Date();
+          var h = date.getHours();
+          var m = date.getMinutes();
+          var s = date.getSeconds();
+          var color = "";
+
+          time.innerHTML = checkTime(h,m,s);
+          color = "#" + h + m + s;
+          colorText.innerHTML = color;
+          document.body.style.backgroundColor = color;
+        }
+
+        function checkTime(h,m,s) {
+          if (h < 10){
+            h = "0" + h;
+          }
+          if (m < 10){
+            m = "0" + m;
+          }
+          if (s < 10){
+            s = "0" + s;
+          }
+          return h + ":" + m + ":" + s;
+        }
+
+        setInterval(getDate, 1000);
+      }
+    </script>
+  </body>
+</html>

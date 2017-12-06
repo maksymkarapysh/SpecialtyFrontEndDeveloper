@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>game "guess number"</title>
+    <style>
+      #container {
+        width: 350px;
+        height: 200px;
+        display: flex;
+        margin-top: 30px;
+      }
+
+      #result {
+        margin: auto;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var userNumber = document.getElementById("userNumber"),
+          btn = document.getElementById("btn"),
+          container = document.getElementById("container"),
+          result = document.getElementById("result"),
+          userNum, pageNum;
+
+        btn.onclick = function() {
+          userNum = parseInt(userNumber.value);
+          pageNum = random(1, 100);
+          check(userNum, pageNum);
+        }
+        function random(min, max) {
+          return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function check(user, page) {
+          if (user < page) {
+            result.innerHTML = "Your number is smoller then value";
+            container.style.backgroundColor = "orange";
+          } else if (user > page) {
+            result.innerHTML = "Your number is bigger then value";
+            container.style.backgroundColor = "orange";
+          } else {
+            result.innerHTML = "You win";
+            container.style.backgroundColor = "green";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="userNumber">
+    <input type="button" id="btn" value="click">
+
+    <div id="container">
+      <p id="result">
+
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+    <script>
+      window.onload = function() {
+        var p = document.getElementById("time"),
+        start = document.getElementById("start"),
+        pause = document.getElementById("pause"),
+        reset = document.getElementById("reset"),
+        ms = 0, s = 0, m = 0, miliSecionds, seconds, minutes, interval;
+
+        function showTime() {
+          if (m > 59) {
+            m = 0;
+          } else {
+            if (s > 59) {
+              s = 0;
+              m++;
+            } else {
+              if (ms > 99) {
+                ms = 0;
+                s++;
+              } else {
+                ms++;
+              }
+            }
+          }
+
+          if (m < 10) {
+            minutes = "0" + m;
+          } else {
+            minutes = m;
+          }
+          if (s < 10) {
+            seconds = "0" + s;
+          } else {
+            seconds = s;
+          }
+          if (ms < 10) {
+            miliSeconds = "0" + ms;
+          } else {
+            miliSeconds = ms;
+          }
+
+          p.innerHTML = minutes + ":" + seconds + ":" + miliSeconds;
+        }
+
+        start.addEventListener("click", function(e) {
+          interval = setInterval(showTime, 0);
+          e.stopPropagation();
+        });
+        pause.addEventListener("click", function(e) {
+          clearInterval(interval);
+          e.stopPropagation();
+        });
+        reset.addEventListener("click", function(e) {
+          clearInterval(interval);
+          ms = 0;
+          s = 0;
+          m = 0;
+          p.innerHTML = "00:00:00";
+          e.stopPropagation();
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <p id="time">
+      00:00:00
+    </p>
+
+    <button id="start">start</button>
+    <button id="pause">pause</button>
+    <button id="reset">reset</button>
+  </body>
+</html>

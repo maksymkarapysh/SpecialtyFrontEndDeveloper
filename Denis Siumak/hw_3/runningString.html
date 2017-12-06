@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>running string</title>
+    <style>
+      body {
+        overflow: hidden;
+        }
+        #inputText {
+        width: 500px;
+        }
+        #p {
+        position: relative;
+        }
+        #runStr{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var inputText = document.getElementById("inputText"),
+            btn = document.getElementById("btn"),
+            p = document.getElementById("p"),
+            run = document.getElementById("runStr"),
+            inputs = document.getElementsByClassName("inputs"),
+            str = "",
+            count = 0;
+
+        btn.onclick = function() {
+          var widthStr;
+          str = inputText.value;
+          for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = "none";
+          }
+          run.innerHTML = str;
+          widthStr = run.offsetWidth;
+          setInterval(runStr, 10);
+          function runStr() {
+            if (count > screen.width) {
+              count = -widthStr;
+            } else {
+              run.style.left = count + "px";
+            }
+            count++;
+            //console.log(count);
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input id="inputText" class="inputs" type="text">
+    <input id="btn" class="inputs" type="button" value="click">
+    <p id="p">
+      <span id="runStr">
+      </span>
+    </p>
+  </body>
+</html>

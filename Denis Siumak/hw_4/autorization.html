@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>autorization</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+      }
+      .autorization {
+        padding: 30px 25px;
+        border: 1px solid #000;
+        margin: auto;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+      }
+      .autorization__label {
+        display: block;
+        margin: 15px 0 ;
+        text-align: right;
+      }
+      .autorization_input {
+        margin-left: 15px;
+        border: 1px solid gray;
+      }
+      .check {
+        text-align: center;
+      }
+      .btn {
+        margin: auto;
+      }
+      #error {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        text-align: center;
+        margin: 0;
+        width: 100%
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        btn.onclick = function() {
+          var login = document.getElementById("login").value,
+              pass = document.getElementById("pass").value,
+              check = document.getElementById("check").checked,
+              btn = document.getElementById("btn"),
+              error = document.getElementById("error"),
+              inputs = document.getElementsByClassName("autorization_input"),
+              flag = false;
+
+          if (login != "admin" && pass != "12345") {
+            for (var i = 0; i < inputs.length; i++) {
+              inputs[i].style.backgroundColor = "rgba(191,0,0,0.45)";
+            }
+            error.style.color = "red";
+            error.innerHTML = "Login or password incorrect";
+          } else {
+            error.style.color = "green";
+            error.innerHTML = "You logged";
+            flag = true;
+          }
+
+          if (flag) {
+            reloadPage();
+          }
+        }
+      }
+
+      function reloadPage() {
+        setTimeout(function() {
+          location.reload(true);
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <div class="autorization">
+      <p id="error"></p>
+      <label class="autorization__label">
+        <span class="input__text">enter login</span>
+        <input id="login" class="login autorization_input" name="login" type="text">
+      </label>
+      <label class="autorization__label">
+       <span class="input__text">enter password</span>
+       <input id="pass" class="pass autorization_input" name="pass" type="password">
+      </label>
+      <label class="check autorization__label">
+        <input id="check" type="checkbox">
+        <span class="input__text">remember me</span>
+      </label>
+        <input id="btn" type="button" value="Enter" class="btn">
+    </div>
+  </body>
+</html>

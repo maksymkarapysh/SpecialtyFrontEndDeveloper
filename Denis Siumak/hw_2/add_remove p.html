@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>add/remove  p*10</title>
+     <script>
+	window.onload = function() {
+	  var btn = document.getElementById("btn");
+	  var counter = 0;
+	  btn.onclick = function() {
+	    var tag = document.createElement("p");
+	    tag.innerHTML = "Lorem ipsum";
+	    document.body.appendChild(tag);
+	    var body = document.body.childNodes;
+	    counter++;
+	    if (counter == 10) {
+	      for (var i = 0; i < body.length; i++) {
+		if (body[i].nodeName == "P") {
+		  document.body.removeChild(body[i]);
+		  i--;
+		}
+	      }
+	      counter = 0;
+	    }
+	  }
+	}
+     </script>
+</head>
+<body>
+  <button id="btn">Click</button>
+  
+ 
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Change text</title>
+    <script>
+      // (function() {
+      //   var p = document.body.childNodes;
+      // for (var i = 0; i < p.length; i++) {
+      //   if (p[i].nodeType === 1) {
+      //     p[i].innerHTML = "Paragraph";
+      //   }
+      // }
+      // })();
+
+      window.onload = function() {
+
+        var module = {
+          childs: 0,
+          changeText: function() {
+            var p = document.body.childNodes;
+            for (var i = 0; i < p.length; i++) {
+              if (p[i].nodeType === 1) {
+                p[i].innerHTML = "Paragraph";
+                module.childs++;
+              }
+            }
+          }
+        }
+        module.changeText();
+        // console.log(module.childs);
+      }
+    </script>
+  </head>
+  <body>
+    <p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<p class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+<h1 class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</h1>
+<a class="paragraph">lorem ipsum dolor sit amet consectetur adipiscing elit</a>
+  </body>
+</html>

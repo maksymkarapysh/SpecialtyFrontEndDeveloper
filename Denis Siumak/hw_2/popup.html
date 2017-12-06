@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Popup</title>
+    <style>
+    body {
+      text-align: center;
+    }
+    .modal {
+      position: absolute;
+      top: 100px;
+      left: calc(15%);
+      width: 650px;
+      height: 400px;
+      background-color: grey;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.95;
+    }
+    .close {
+      font-family: sans-serif;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: aqua;
+      padding: 1px 6px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .5s;
+    }
+    .close:hover {
+      background-color: #fff;
+    }
+    </style>
+    <script>
+    window.onload = function() {
+      var btn = document.querySelector(".btn"),
+          modal = document.querySelector(".modal"),
+          close = document.querySelector(".close");
+
+      btn.onclick = showModal;
+      close.onclick = closeModal;
+
+      function showModal() {
+        modal.style.display = "flex";
+        document.body.style.backgroundColor = "rgba(197,197,10,.9)";
+      }
+
+      function closeModal() {
+        modal.style.display = "none";
+        document.body.style.backgroundColor = "rgba(197,197,10,0)";
+      }
+    }
+
+    </script>
+  </head>
+  <body>
+    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<div class="modal">
+  <div class="close">x</div>
+  Hello!
+</div>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<button class="btn"> Enter</button>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+<p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo ut earum culpa iste illum quisquam dolorum, natus molestias nulla beatae doloribus placeat nostrum distinctio quaerat veniam nesciunt mollitia hic illo!</p>
+  </body>
+</html>

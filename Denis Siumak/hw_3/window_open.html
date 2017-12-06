@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>window.open</title>
+    <style>
+      .link {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" id="leasson1" class="link">JS Урок 1</a>
+    <a href="#" id="leasson2" class="link">JS Урок 2</a>
+    <a href="#" id="leasson3" class="link">JS Урок 3</a>
+    
+    <script>
+    var leass1 = document.getElementById("leasson1"),
+        leass2 = document.getElementById("leasson2"),
+        leass3 = document.getElementById("leasson3"),
+        flag1 = false, flag2 = false, flag3 = false;
+
+      leass1.onclick = function() {
+        var w = window.open("https://edu.cbsystematics.com/ua/education/speciality/dotnetdeveloper", "CBS", "width=500,height=500,left=200,top=250");
+        leass1.innerHTML = "JS Урок 1 open";
+        flag1 = !flag1;
+        if (!flag1) {
+          leass1.innerHTML = "JS Урок 1";
+          w.top.close();
+        }
+      }
+
+      leass2.onclick = function() {
+        var w = window.open("https://edu.cbsystematics.com/ua/education/Specialities", "CBS", "width=500,height=500,left=200,top=250");
+        leass2.innerHTML = "JS Урок 2 open";
+        flag2 = !flag2;
+        if (!flag2) {
+          leass2.innerHTML = "JS Урок 2";
+          w.close();
+        }
+      }
+
+      leass3.onclick = function() {
+        var w = window.open("https://edu.cbsystematics.com/ua/education/speciality/frontenddeveloper", "CBS", "width=500,height=500,left=200,top=250");
+        leass3.innerHTML = "JS Урок 3 open";
+        flag3 = !flag3;
+        if (!flag3) {
+          leass3.innerHTML = "JS Урок 3";
+          w.close();
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body {
+        position: relative;
+        overflow: hidden;
+      }
+      #container {
+        position: relative;
+        z-index: 10;
+      }
+      #context {
+        width: 300px;
+        position: absolute;
+      }
+    </style>
+    <script>
+      window.onload = function() {
+        var context = document.getElementById("context"),
+          up = document.getElementById("up"),
+          right = document.getElementById("right"),
+          bottom = document.getElementById("bottom"),
+          left = document.getElementById("left"),
+          step = 100, positionY = 0, positionX = 0;
+
+
+        up.onclick = function() {
+          positionX -= step;
+          context.style.top = positionX + "px";
+          context.style.transition = "1s";
+        }
+        right.onclick = function() {
+          positionY += step;
+          context.style.left = positionY + "px";
+          context.style.transition = "1s";
+        }
+        bottom.onclick = function() {
+          positionX += step;
+          context.style.top = positionX + "px";
+          context.style.transition = "1s";
+        }
+        left.onclick = function() {
+          positionY -= step;
+          context.style.left = positionY + "px";
+          context.style.transition = "1s";
+        }
+      }      
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" id="up">up</button>
+      <button class="btn" id="right">right</button>
+      <button class="btn" id="bottom">bottom</button>
+      <button class="btn" id="left">left</button>
+    </div>
+
+    <div class="wrap">
+      <div id="context">
+      <p class="text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+          nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
