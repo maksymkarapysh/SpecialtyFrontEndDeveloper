@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Press Button</title>
+    <script>
+      window.addEventListener("load", init, false);
+
+      function init() {
+        var text = document.getElementById("text");
+
+        document.addEventListener("keydown", pressBtn, false);
+
+        function pressBtn(e) {
+          e = e || window.event;
+          if (e.ctrlKey && e.shiftKey && e.keyCode == "83") {
+            text.innerHTML = "Save all!";
+          } else if (e.ctrlKey && e.keyCode == "65") {
+            text.innerHTML = "Selected all!";
+          } else if (e.ctrlKey && e.keyCode == "83") {
+            text.innerHTML = "Save";
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p id="text">
+
+</p>
+  </body>
+</html>
