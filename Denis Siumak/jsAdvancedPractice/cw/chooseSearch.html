@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      window.onload = function() {
+        var textForSearch = document.getElementById("textForSearch"),
+            searchServices = document.getElementById("searchServices"),
+            searchBtn = document.getElementById("searchBtn");
+
+        searchBtn.addEventListener("click", init, false);
+
+        function init() {
+          window.open(searchServices.value + textForSearch.value);
+          //window.location = searchServices.value + textForSearch.value;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" name="textForSearch" id="textForSearch">
+    <select name="searchServices" id="searchServices">
+      <option value="https://www.google.com.ua/search?q=">google</option>
+      <option value="https://www.bing.com/search?q=">bing</option>
+      <option value="https://www.yahoo.com/search?q=">yahoo</option>
+    </select>
+    <input type="button" value="search" id="searchBtn">
+  </body>
+</html>
