@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Placeholder Modify</title>
+    <style>
+      input {
+        width: 250px;
+        margin: 10px auto;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function() {
+        var form =document["someForm"],
+            login = form.login.dataset.watermark,
+            pass = form.password.dataset.watermark,
+            email = form.email.dataset.watermark,
+            address = form.address.dataset.watermark;
+
+        var Mod = {};
+
+        Mod.watermark = function(form, name, value) {
+          var watermark = value,
+              input = form[name];
+          initInput();
+
+          input.addEventListener("focus", function() {
+            if (input.value == watermark) {
+              input.value = "";
+              input.style.color = "black";
+              input.style.fontStyle = "normal";
+            }
+          });
+          input.addEventListener("blur", function() {
+            if (input.value == "") {
+              initInput();
+            }
+          });
+
+          function initInput() {
+            input.value = watermark;
+            input.style.color = "gray";
+            input.style.fontStyle = "italic";
+          }
+        }
+
+        Mod.watermark(form,"login", login);
+        Mod.watermark(form,"password", pass);
+        Mod.watermark(form,"email", email);
+        Mod.watermark(form,"address", address);
+      })
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
