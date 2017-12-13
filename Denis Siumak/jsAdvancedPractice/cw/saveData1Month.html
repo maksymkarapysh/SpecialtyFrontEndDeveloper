@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>save data 1 month</title>
+    <script>
+      window.onload = function () {
+        var date = new Date();
+        var inner = document.getElementById("inner");
+
+        document.cookie = "last modify=" + date.toUTCString() + "; expires=" + new Date(date.setMonth(date.getMonth() + 1)).toUTCString();
+
+        function findCookieValue(cookieName) {
+          var allcookies = document.cookie;
+          var pos = allcookies.indexOf(cookieName + "=");
+
+          if (pos != -1) {
+            var start = pos + cookieName.length + 1;
+            var end = allcookies.indexOf(";", start);
+
+            if (end == -1) {
+                end = allcookies.length;
+            }
+
+            var value = allcookies.substring(start, end);
+
+            return value;
+          }
+        }
+
+        var val = findCookieValue("last modify");
+
+        if (val) {
+          inner.innerHTML = val;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p id="inner"></p>
+  </body>
+</html>

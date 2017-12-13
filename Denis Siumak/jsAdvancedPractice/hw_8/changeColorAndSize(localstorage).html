@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      div {
+        padding: 15px 0
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function() {
+        var colorBox = document.getElementById("colorBox"),
+            changeSize = document.getElementById("changeSize"),
+            btn = document.getElementById("btn"),
+            regExp = /\d+/;
+        console.log(document.cookie);
+        var savedColor = localStorage.getItem("page-color");
+        var savedSize = localStorage.getItem("page-size");
+
+          if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+          }
+          if (savedSize) {
+            document.body.style.fontSize = savedSize + "px";
+          }
+
+        changeSize.addEventListener("keypress", function(e) {
+          if (!regExp.test(String.fromCharCode(e.charCode))) {
+            e.preventDefault();
+          }
+        }, false);
+
+        btn.addEventListener("click", function() {
+          var color = colorBox.value;
+          var size = changeSize.value;
+          document.body.style.backgroundColor = color;
+          document.body.style.fontSize = size + "px";
+          localStorage.setItem("page-color", color);
+          localStorage.setItem("page-size", size)
+        }, false);
+      });
+    </script>
+  </head>
+  <body>
+    <select name="colorBox" id="colorBox">
+     <option value="AliceBlue">AliceBlue</option>
+     <option value="Cornsilk">Cornsilk</option>
+     <option value="DarkGrey">DarkGrey</option>
+     <option value="FloralWhite">FloralWhite</option>
+     <option value="Indigo">Indigo</option>
+    </select>
+    <input type="text" name="changeSize" id="changeSize" placeholder=" enter integer number">
+    <input type="submit" id="btn" value="click">
+
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur
+      doloremque veritatis nulla sequi, assumenda, tempore optio praesentium
+      aspernatur omnis rem, provident officiis neque magnam adipisci
+      perspiciatis voluptate perferendis quas!
+    </div>
+  </body>
+</html>
