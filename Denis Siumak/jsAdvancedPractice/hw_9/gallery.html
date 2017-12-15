@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gallery</title>
+    <style>
+      body {
+        display: flex;
+        height: 96vh;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: auto;
+      }
+      #thumbContainer {
+        display: flex;
+      }
+      #thumbContainer,
+      #imageBig {
+        border: 1px solid #707070;
+        padding: 5px;
+      }
+      .link {
+        padding: 5px;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function() {
+        var thumbs = document.getElementById("thumbContainer"),
+            imageBig = document.getElementById("imageBig"),
+            imgB = document.createElement("img"),
+            arrImgThumb = [
+              "https://js.cx/gallery/img2-thumb.jpg",
+              "https://js.cx/gallery/img3-thumb.jpg",
+              "https://js.cx/gallery/img4-thumb.jpg",
+              "https://js.cx/gallery/img5-thumb.jpg",
+              "https://js.cx/gallery/img6-thumb.jpg"
+            ],
+            arrImg = [
+              "https://js.cx/gallery/img2-lg.jpg",
+              "https://js.cx/gallery/img3-lg.jpg",
+              "https://js.cx/gallery/img4-lg.jpg",
+              "https://js.cx/gallery/img5-lg.jpg",
+              "https://js.cx/gallery/img6-lg.jpg"
+            ];
+        // initialize first image
+        imgB.src = "https://js.cx/gallery/img2-lg.jpg";
+        imageBig.appendChild(imgB);
+
+        //load thumb-image
+        for (var i = 0, max = arrImgThumb.length; i < max; i++) {
+         var a = document.createElement("a"),
+             img = new Image();
+
+         img.src = arrImgThumb[i];
+         a.appendChild(img);
+         a.setAttribute("href", arrImg[i]);
+         a.classList.add("link");
+         thumbs.appendChild(a);
+        }
+        //
+        thumbs.addEventListener("click", function(e) {
+          var target = e.target;
+
+          while (target != this) {
+            if (target.nodeName == 'A') {
+              imgB.src = target.href;
+              imageBig.appendChild(imgB);
+            }
+            target = target.parentNode;
+            e.preventDefault();
+          }
+        }, false);
+
+      }, false)
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="thumbContainer">
+
+      </div>
+      <div id="imageBig">
+
+      </div>
+    </div>
+  </body>
+</html>

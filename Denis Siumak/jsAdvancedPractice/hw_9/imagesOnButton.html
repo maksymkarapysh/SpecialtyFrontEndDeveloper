@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>3 image on buttons</title>
+    <style>
+      #container {
+        margin-bottom: 15px
+      }
+    </style>
+    <script>
+      window.addEventListener("load", init, false);
+
+      function init(e) {
+        var containerBtn = document.getElementById("container"),
+            img = new Image(300),
+            imagesArr = ["https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/CSS.3.svg/2000px-CSS.3.svg.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Badge_js-strict.svg/2000px-Badge_js-strict.svg.png"];
+
+
+        containerBtn.addEventListener("click", function(e) {
+          for (var i = 0, a = this.children.length; i < a; i++) {
+            if (e.target.value == this.children[i].value) {
+              img.src = imagesArr[i];
+              document.body.appendChild(img);
+            }
+          }
+        })
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="container">
+      <button value="html">html5</button>
+      <button value="css">css3</button>
+      <button value="js">javascript</button>
+    </div>
+  </body>
+</html>

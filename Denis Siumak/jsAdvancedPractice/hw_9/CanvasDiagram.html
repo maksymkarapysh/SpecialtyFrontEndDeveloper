@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas diagram</title>
+    <script>
+      window.addEventListener("load", function() {
+        var mod = {};
+        mod.arr = [30, 6, 88, 91, 2, 45, 100, 150, 200];
+        mod.diagram = function (canvas, width, height, color) {
+          canvas = document.getElementById("diagram");
+          canvas.width = width;
+          canvas.height = height;
+
+          var data = mod.arr,
+              context = canvas.getContext("2d"),
+              max = Number.NEGATIVE_INFINITY;
+
+          for (var i = 0, len = data.length; i < len; i++) {
+            if (max < data[i]) {
+              max = data[i];
+            }
+          }
+          var scale = height / max,
+              barWidth = Math.floor(width / data.length);
+          for (var i = 0, len = data.length; i < len; i++) {
+            var barHeight = data[i] * scale,
+                x = barWidth * i,
+                y = height - barHeight;
+
+            context.fillStyle = color;
+            context.fillRect(x, y, barWidth-2, barHeight);
+          }
+        }
+        mod.diagram("diagram", 500, 350, "aqua");
+      }, false);
+    </script>
+  </head>
+  <body>
+    <canvas id="diagram"></canvas>
+  </body>
+</html>

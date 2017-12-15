@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>
+
+    </title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      select,
+      input,
+      label{
+        margin: 5px auto
+      }
+      #product_wrap {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #sale {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="orderPizza">
+      <select name="sizePizza" id="sizePizza">
+        <!--option value="none">choose size</option-->
+        <option value="small">small - 29 &#8372;</option>
+        <option value="middle">middle - 38 &#8372;</option>
+        <option value="big">big - 45 &#8372;</option>
+      </select>
+      <div id="product_wrap">
+        <label> becon + 9 &#8372;
+          <input type="checkbox" class="product" name="product" value="becon"> </input>
+        </label>
+        <label> cheese + 15 &#8372;
+          <input type="checkbox" class="product" name="product" value="cheese"></option>
+        </label>
+        <label> mashrooms + 12 &#8372;
+          <input type="checkbox" class="product" name="product" value="mashrooms"></option>
+        </label>
+        <label>tomato + 5 &#8372;
+          <input type="checkbox" class="product" name="product" value="tomato"></option>
+        </label>
+        <label>olives + 7 &#8372;
+          <input type="checkbox" class="product" name="product" value="olives"></option>
+        </label>
+      </div>
+      <label for="phone">phone</label>
+      <input type="text" id="phone">
+      <label for="address">address</label>
+      <input type="text" id="address">
+      <p id="sale">Your price is <span id="price">29</span> uah</p>
+      <input type="submit" id="order" value="order">
+    </form>
+    <script>
+      window.addEventListener("load", init, false);
+
+      function init() {
+        var form = document.forms["orderPizza"],
+            size = document.getElementById("sizePizza"),
+            product = document.getElementsByName("product"),
+            phone = document.getElementById("phone"),
+            address = document.getElementById("address"),
+            sale = document.getElementById("sale"),
+            price = document.getElementById("price"),
+            btn = document.getElementById("order"),
+            total = 0;
+
+        var pizzaObj = {
+            small: 29,
+            middle: 38,
+            big: 45,
+            becon: 9,
+            cheese: 15,
+            mashrooms: 12,
+            tomato: 5,
+            olives: 7
+        };
+
+        for (var el in form) {
+          var curentEl = form[el],
+              total1 = 0,
+              total2 = 0;
+
+          if (curentEl.name == "sizePizza" || curentEl.name == "product") {
+
+            curentEl.addEventListener("change", function(e) {
+              // if (e.target.value != "none" ) {
+              //   sale.style.visibility = "visible";
+              // } else
+              if (e.target.value == "small") {
+                  total1 = pizzaObj.small;
+              } else if (e.target.value == "middle") {
+                total1 = pizzaObj.middle;
+              } else if (e.target.value == "big") {
+                total1 = pizzaObj.big;
+              } else if (e.target.value == "becon") {
+                if(e.target.checked ==false){
+                    total2 -= pizzaObj.becon;
+                } else{
+                    total2 += pizzaObj.becon;
+                }
+              } else if (e.target.value == "cheese") {
+                if(e.target.checked ==false){
+                    total2 -= pizzaObj.cheese;
+                } else{
+                    total2 += pizzaObj.cheese;
+                }
+              } else if (e.target.value == "mashrooms") {
+                if(e.target.checked ==false){
+                    total2 -= pizzaObj.mashrooms;
+                } else{
+                    total2 += pizzaObj.mashrooms;
+                }
+              } else if (e.target.value == "tomato") {
+                if(e.target.checked ==false){
+                    total2 -= pizzaObj.tomato;
+                } else{
+                    total2 += pizzaObj.tomato;
+                }
+              } else if (e.target.value == "olives") {
+                if(e.target.checked ==false){
+                    total2 -= pizzaObj.olives;
+                } else{
+                    total2 += pizzaObj.olives;
+                }
+              }
+              total = total1 + total2
+              price.innerHTML = total;
+            }, false)
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
