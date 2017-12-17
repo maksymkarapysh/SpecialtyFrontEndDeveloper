@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Additional task</title>
+	<style type="text/css">
+		#box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 25px;
+			height: 25px;
+			background-color: rgb(255, 0, 0);
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var step = 5; // шаг передвижения
+		var dY = 0; // координаты по У
+		var dX =	0; // координаты по Х
+		
+		function handler(e) {
+			if (e.keyCode === 39) {
+				dX += step;
+			} else if (e.keyCode === 40) {
+				dY += step;
+			} else if (e.keyCode === 38) {
+				dY -= step;
+			} else if (e.keyCode === 37) {
+				dX -= step;
+			}
+
+			box.style.top = dY + "px";
+			box.style.left = dX + "px";
+
+
+			console.log(e.keyCode, dX, dY);
+		};
+
+		window.addEventListener('keydown', handler);
+
+	</script>
+</body>
+</html>
