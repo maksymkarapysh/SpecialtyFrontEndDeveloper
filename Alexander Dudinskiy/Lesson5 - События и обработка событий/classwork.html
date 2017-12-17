@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dom 1 - 001</title>
+</head>
+<body>
+	<input type="text" placeholder="Введите первое число" id="numA">
+	<input type="text" placeholder="Введите второе число" id="numB">
+
+	<button id="add">+</button>
+	<button id="sub">-</button>
+	<button id="mul">*</button>
+	<button id="div">/</button>
+
+	<p id="result"></p>
+
+	<script type="text/javascript">
+		var a = document.getElementById("numA");
+		var b = document.getElementById("numB");
+
+		var add = document.getElementById("add");
+    var sub = document.getElementById("sub");
+    var mul = document.getElementById("mul");
+    var div = document.getElementById("div");
+
+		var result = document.getElementById("result");
+
+		add.onclick = function() {
+			return result.innerHTML = parseInt(a.value) + parseInt(b.value);
+		}
+		sub.onclick = function() {
+			return result.innerHTML = parseInt(a.value) - parseInt(b.value);
+		}
+		mul.onclick = function() {
+			return result.innerHTML = parseInt(a.value) * parseInt(b.value);
+		}
+		div.onclick = function() {
+			return result.innerHTML = parseInt(a.value) / parseInt(b.value);
+		}
+
+	</script>
+</body>
+</html>
