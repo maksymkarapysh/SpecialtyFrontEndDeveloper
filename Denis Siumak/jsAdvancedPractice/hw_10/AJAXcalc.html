@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>calculator with AJAX</title>
+    <style>
+      input[type="text"] {
+        width: 200px;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", function() {
+        var xhr = new XMLHttpRequest(),
+            firstInput = document.getElementById("firstInput"),
+            secondInput = document.getElementById("secondInput"),
+            btn = document.getElementById("btn"),
+            output = document.getElementById("output"),
+            regExp = /\d/;
+
+        firstInput.addEventListener("keypress", function(e) {
+          if (!regExp.test(String.fromCharCode(e.charCode))) {
+            e.preventDefault();
+          }
+        }, false);
+        secondInput.addEventListener("keypress", function(e) {
+          if (!regExp.test(String.fromCharCode(e.charCode))) {
+            e.preventDefault();
+          }
+        }, false);
+
+        btn.addEventListener("click", function () {
+            xhr.open("POST", "CalcHandler.ashx");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //"application/x-www-form-urlencoded"
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    output.innerHTML = xhr.responseText;
+                }
+            }
+            console.log("a=" + firstInput.value + "&b=" + secondInput.value);
+            xhr.send("a=" + firstInput.value + "&b=" + secondInput.value);
+
+        }, false)
+      }, false);
+    </script>
+
+  </head>
+  <body>
+    <input type="text" id="firstInput" placeholder="Please enter integer number">
+    <input type="text"id="secondInput" placeholder="Please enter integer number">
+    <input type="submit" id="btn">
+
+    <p id="output"></p>
+  </body>
+</html>
