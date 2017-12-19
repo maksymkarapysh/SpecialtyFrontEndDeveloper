@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dom 2 - Calculate</title>
+</head>
+<body>
+	<input type="text" placeholder="Введите первое число" id="numA">
+
+	<button id="add">+</button>
+	<button id="sub">-</button>
+	<button id="mul">*</button>
+	<button id="div">/</button>
+
+	<input type="text" placeholder="Введите второе число" id="numB">
+	<p id="result"></p>
+
+	<script type="text/javascript">
+		var a = document.getElementById("numA"),
+				b = document.getElementById("numB"),
+				add = document.getElementById("add"),
+    		sub = document.getElementById("sub"),
+    		mul = document.getElementById("mul"),
+    		div = document.getElementById("div"),
+				result = document.getElementById("result");
+
+		add.addEventListener("click", function() {
+			return result.innerHTML = "Результат равен: " + calculate(a, b, add);
+		})
+		sub.addEventListener("click", function() {
+			return result.innerHTML = "Результат равен: " + calculate(a, b, sub);
+		})
+		mul.addEventListener("click", function() {
+			return result.innerHTML = "Результат равен: " + calculate(a, b, mul);
+		})
+		div.addEventListener("click", function() {
+			return result.innerHTML = "Результат равен: " + calculate(a, b, div);
+		})
+
+		function calculate(a, b, action) {
+			a = parseInt(a.value, 10);
+			b = parseInt(b.value, 10);
+			switch (action.innerText) {
+				case "+":
+					return a + b;
+					break;
+				case "-":
+					return a - b;
+					break;
+				case "*":
+					return a * b;
+					break;
+				case "/":
+					return a / b;
+					break;
+				default:
+					break;
+			}
+		}
+		
+
+	</script>
+</body>
+</html>
