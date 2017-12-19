@@ -6,15 +6,36 @@
 
     </title>
     <style>
-      body {
+      form {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
       select,
       input,
       label{
         margin: 5px auto
       }
+
+      input[type="text"] {
+        width: 250px;
+      }
+
+      .info {
+        display: flex;
+        margin-top: 25px;
+        text-align: right;
+      }
+
+      .info legend {
+        text-align: left;
+      }
+
+      .info input {
+        margin-left: 15px;
+      }
+
       #product_wrap {
         display: flex;
         flex-direction: column;
@@ -27,33 +48,44 @@
   </head>
   <body>
     <form name="orderPizza">
-      <select name="sizePizza" id="sizePizza">
-        <!--option value="none">choose size</option-->
-        <option value="small">small - 29 &#8372;</option>
-        <option value="middle">middle - 38 &#8372;</option>
-        <option value="big">big - 45 &#8372;</option>
-      </select>
-      <div id="product_wrap">
-        <label> becon + 9 &#8372;
-          <input type="checkbox" class="product" name="product" value="becon"> </input>
+      <fieldset>
+        <legend>products</legend>
+        <select name="sizePizza" required id="sizePizza">
+          <option value="size">choose a size of pizza</option>
+          <option value="small">small - 29 &#8372;</option>
+          <option value="middle">middle - 38 &#8372;</option>
+          <option value="big">big - 45 &#8372;</option>
+        </select>
+        <div id="product_wrap">
+          <label> becon + 9 &#8372;
+            <input type="checkbox" class="product" name="product" value="becon"> </input>
+          </label>
+          <label> cheese + 15 &#8372;
+            <input type="checkbox" class="product" name="product" value="cheese"></option>
+          </label>
+          <label> mashrooms + 12 &#8372;
+            <input type="checkbox" class="product" name="product" value="mashrooms"></option>
+          </label>
+          <label>tomato + 5 &#8372;
+            <input type="checkbox" class="product" name="product" value="tomato"></option>
+          </label>
+          <label>olives + 7 &#8372;
+            <input type="checkbox" class="product" name="product" value="olives"></option>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset class="info">
+        <legend>information</legend>
+        <label>name
+          <input type="text" id="name" name="name" required placeholder="Enter your name" pattern="[A-Za-zА-Яа-яЁё]+">
         </label>
-        <label> cheese + 15 &#8372;
-          <input type="checkbox" class="product" name="product" value="cheese"></option>
+        <label>phone
+          <input type="text" id="phone" name="phone" required placeholder="Enter your phone number" title="+38(0xx)xxx-xx-xx " pattern="\+38\s?\(?\d{3}\)?\s?\d{3}-?\d{2}-?\d{2}">
         </label>
-        <label> mashrooms + 12 &#8372;
-          <input type="checkbox" class="product" name="product" value="mashrooms"></option>
+        <label>address
+          <input type="text" id="address" name="address" required placeholder="Enter your actual address" pattern="[A-Za-zА-Яа-яЁё0-9,.\-\s]+">
         </label>
-        <label>tomato + 5 &#8372;
-          <input type="checkbox" class="product" name="product" value="tomato"></option>
-        </label>
-        <label>olives + 7 &#8372;
-          <input type="checkbox" class="product" name="product" value="olives"></option>
-        </label>
-      </div>
-      <label for="phone">phone</label>
-      <input type="text" id="phone">
-      <label for="address">address</label>
-      <input type="text" id="address">
+      </fieldset>
       <p id="sale">Your price is <span id="price">29</span> uah</p>
       <input type="submit" id="order" value="order">
     </form>
@@ -62,14 +94,10 @@
 
       function init() {
         var form = document.forms["orderPizza"],
-            size = document.getElementById("sizePizza"),
-            product = document.getElementsByName("product"),
-            phone = document.getElementById("phone"),
-            address = document.getElementById("address"),
             sale = document.getElementById("sale"),
             price = document.getElementById("price"),
             btn = document.getElementById("order"),
-            total = 0;
+            total1 = 0, total2 = 0;
 
         var pizzaObj = {
             small: 29,
@@ -82,59 +110,79 @@
             olives: 7
         };
 
-        for (var el in form) {
-          var curentEl = form[el],
-              total1 = 0,
-              total2 = 0;
-
-          if (curentEl.name == "sizePizza" || curentEl.name == "product") {
-
-            curentEl.addEventListener("change", function(e) {
-              // if (e.target.value != "none" ) {
-              //   sale.style.visibility = "visible";
-              // } else
-              if (e.target.value == "small") {
-                  total1 = pizzaObj.small;
-              } else if (e.target.value == "middle") {
-                total1 = pizzaObj.middle;
-              } else if (e.target.value == "big") {
-                total1 = pizzaObj.big;
-              } else if (e.target.value == "becon") {
-                if(e.target.checked ==false){
-                    total2 -= pizzaObj.becon;
-                } else{
-                    total2 += pizzaObj.becon;
-                }
-              } else if (e.target.value == "cheese") {
-                if(e.target.checked ==false){
-                    total2 -= pizzaObj.cheese;
-                } else{
-                    total2 += pizzaObj.cheese;
-                }
-              } else if (e.target.value == "mashrooms") {
-                if(e.target.checked ==false){
-                    total2 -= pizzaObj.mashrooms;
-                } else{
-                    total2 += pizzaObj.mashrooms;
-                }
-              } else if (e.target.value == "tomato") {
-                if(e.target.checked ==false){
-                    total2 -= pizzaObj.tomato;
-                } else{
-                    total2 += pizzaObj.tomato;
-                }
-              } else if (e.target.value == "olives") {
-                if(e.target.checked ==false){
-                    total2 -= pizzaObj.olives;
-                } else{
-                    total2 += pizzaObj.olives;
-                }
-              }
-              total = total1 + total2
-              price.innerHTML = total;
-            }, false)
+        for (var i = 0, len = form.length; i < len; i++) {
+          var el = form[i];
+          //console.log(el);
+          if (el.name == "sizePizza" || el.name == "product") {
+            el.addEventListener("change", getChangeEl, false);
+          } else if (el.name == "name" || el.name == "phone" || el.name == "address") {
+            el.addEventListener("change", checkInfo, false);
           }
         }
+
+        function getChangeEl(e) {
+          // inner total price
+          if (e.target.value == "size" && e.target.value != "") {
+            sale.style.visibility = "hidden";
+          } else {
+            sale.style.visibility = "visible";
+          }
+          // check change select and checkboxs
+          if (e.target.value == "small") {
+              total1 = pizzaObj.small;
+          } else if (e.target.value == "middle") {
+            total1 = pizzaObj.middle;
+          } else if (e.target.value == "big") {
+            total1 = pizzaObj.big;
+          } else if (e.target.value == "becon") {
+            if(e.target.checked ==false){
+                total2 -= pizzaObj.becon;
+            } else{
+                total2 += pizzaObj.becon;
+            }
+          } else if (e.target.value == "cheese") {
+            if(e.target.checked ==false){
+                total2 -= pizzaObj.cheese;
+            } else{
+                total2 += pizzaObj.cheese;
+            }
+          } else if (e.target.value == "mashrooms") {
+            if(e.target.checked ==false){
+                total2 -= pizzaObj.mashrooms;
+            } else{
+                total2 += pizzaObj.mashrooms;
+            }
+          } else if (e.target.value == "tomato") {
+            if(e.target.checked ==false){
+                total2 -= pizzaObj.tomato;
+            } else{
+                total2 += pizzaObj.tomato;
+            }
+          } else if (e.target.value == "olives") {
+            if(e.target.checked ==false){
+                total2 -= pizzaObj.olives;
+            } else{
+                total2 += pizzaObj.olives;
+            }
+          }
+          price.innerHTML = total1 + total2;
+        }
+        function checkInfo(e) {
+          if (e.target.pattern) {
+            if (new RegExp(e.target.pattern).test(e.target.value)) {
+                e.target.style.border = "3px solid green";
+            } else {
+                e.target.style.border = "3px solid red";
+            }
+          }
+        }
+
+        form.addEventListener("submit", function(e) {
+          if (form["sizePizza"].value == "size") {
+            e.preventDefault();
+            console.log("Choose size");
+          }
+        }, true);
       }
     </script>
   </body>
