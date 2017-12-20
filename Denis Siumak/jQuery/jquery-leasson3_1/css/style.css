@@ -1,0 +1,17 @@
+p {
+    margin: 4px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.blue {
+    color: blue;
+}
+
+.under {
+    text-decoration: underline;
+}
+
+.highlight {
+    background: yellow;
+}

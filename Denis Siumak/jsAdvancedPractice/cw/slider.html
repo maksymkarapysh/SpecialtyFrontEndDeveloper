@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>simple slider</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+      }
+      .slider {
+        margin: auto;
+        position: relative;
+      }
+      .slides {
+        width: 600px;
+        height: 400px;
+
+      }
+      .slides__item {
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+
+      .slides__item:first-of-type {
+        display: block;
+      }
+      .navigation {
+        width: 100%;
+        position: absolute;
+        top: 0;
+      }
+      .btn {
+        position: absolute;
+        font-size: 28px;
+        background-color: transparent;
+        border: none;
+        padding: 185px 10px;
+        display: flex;
+      }
+      .btn:hover .arrow {
+        background-color: transparent;
+        opacity: .8;
+        color: #707070;
+      }
+      .btn:focus {
+        outline: none;
+      }
+      .next {
+        right: 0;
+      }
+      .back .arrow {
+        padding: 8px 15px 10px 10px;
+      }
+      .arrow {
+        color: white;
+        margin: auto;
+        padding: 8px 10px 10px 15px;
+        border: 1px solid #707070;
+        border-radius: 50%;
+        background-color: #707070;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", init, false);
+
+      function init() {
+        var slides = document.getElementsByClassName("slides__item"),
+            back = document.getElementsByClassName("back")[0],
+            next = document.getElementsByClassName("next")[0],
+            count = 0;
+
+        next.addEventListener("click", nextSlide, false);
+        back.addEventListener("click", backSlide, false);
+
+        function nextSlide() {
+          slides[count].style.display = "none";
+          count++;
+          count %= slides.length;
+          slides[count].style.display = "block";
+        }
+        function backSlide() {
+          slides[count].style.display = "none";
+          count--;
+          if (count < 0) {
+            count = slides.length-1;
+          }
+          slides[count].style.display = "block";
+        }
+      }
+    </script>
+  </head>
+  <body>
+  <div class="slider">
+    <div class="slides">
+      <img src="https://static.secure.website/wscfus/10078986/1b9fe626dc7a08f8713abb66e3ebdd7f.jpg" alt="around the world" class="slides__item">
+      <img src="https://fortricks.in/wp-content/uploads/2017/08/150324_flights-hero-image_1330x742-3.jpg" alt="airplane" class="slides__item">
+      <img src="https://blogs-images.forbes.com/robertadams/files/2016/03/the-best-travel-websites-in-the-world-1200x800.jpg?width=960" alt="map" class="slides__item">
+      <img src="https://cdn.pixabay.com/photo/2016/01/19/15/48/luggage-1149289_960_720.jpg" alt="bag" class="slides__item">
+      <img src="http://www.outdoorukraine.com/images/stories/articles/trekking-nepal/00-trekking-v-nepale.jpg" alt="trekking" class="slides__item">
+      <img src="http://apex-tour.com.ua/wp-content/uploads/2013/12/0812.jpg" alt="info everest" class="slides__item">
+      <img src="http://i2.wp.com/georgiantime.com/wp-content/uploads/2016/04/youth-trekking-e1460572029532.jpg" alt="lake in the mountains" class="slides__item">
+      <img src="http://www.idemvpohod.com/images/stories/marshrutys/anapurna-base/94.jpg" alt="gimalayas mountains" class="slides__item">
+    </div>
+    <div class="navigation">
+      <button class="btn back">
+        <span class="arrow">&#9665;</span>
+      </button>
+      <button class="btn next">
+        <span class="arrow">&#9655;</span>
+      </button>
+    </div>
+  </div>
+
+  </body>
+</html>

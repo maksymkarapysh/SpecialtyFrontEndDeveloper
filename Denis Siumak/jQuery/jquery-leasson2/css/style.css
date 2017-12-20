@@ -1,0 +1,17 @@
+ div { 
+    width:60px; 
+    height:60px; 
+    margin:10px; 
+    float:left;
+    background:yellow;
+    border:2px solid white; 
+}
+.green {
+    background:#8f8; 
+}
+.gray { 
+    background:#ccc; 
+}
+#blue { 
+    background:#99f; 
+}
