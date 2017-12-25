@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Домашняя работа</title>
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        /*$(document).ready(function() {
+	  $("div").html("<ul><li>1</li><li>2</li><li>3</li></ul>");
+	})*/
+	$(document).ready(function() {
+	  var list = $("div").append("<ul></ul>").find("ul");
+	  for (var i= 0; i < 3; i++) {
+	    list.append("<li>" + (i + 1) + "</li>");
+	  }
+	})
+        // Ваш код
+
+    </script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
