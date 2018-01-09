@@ -1,0 +1,44 @@
+.container {
+  position: relative;
+  padding-top: 0;
+}
+.header {
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0;
+  background-color: purple;
+  width: 100%;
+  position: relative;
+}
+.container:nth-child(n+1) > .header {
+  background-color: lightred;
+}
+.container:nth-child(2n) > .header {
+  background-color: lightblue;
+}
+.container:nth-child(3n) > .header {
+  background-color: gray;
+}
+.container:nth-child(4n) > .header {
+  background-color: lightgreen;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  display: block;
+}
+
+.text {
+  padding: 50px 0 20px;
+}
+
+.btn {
+  position: fixed;
+  top: 8px;
+  right: 20px;
+  z-index: 150;
+}
+#initialize {
+  right: 100px;
+}
