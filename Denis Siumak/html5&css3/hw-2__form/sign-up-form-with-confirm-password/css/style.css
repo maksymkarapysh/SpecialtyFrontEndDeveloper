@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+input[type="checkbox"] {
+  margin: 0;
+  margin-right: 10px;
+}
+.myForm {
+  max-width: 635px;
+  background-color: #054586;
+  padding: 34px 58px 56px 77px;
+  box-sizing: border-box;
+}
+.myForm__header {
+  font-family: Roboto;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 23px;
+  padding: 0;
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form__row {
+  width: 100%;
+  position: relative;
+}
+
+.form__row_flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.form__input_img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 10px;
+  fill: #0673e2;
+}
+
+.form__input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 16px;
+  border: none;
+  padding-left: 52px;
+  box-sizing: border-box;
+}
+
+.form__input_size-2 {
+  width: 48%;
+  padding-left: 12px;
+}
+
+.form__select {
+  padding-left: 12px;
+  color: #717477;
+}
+
+.form__checkbox {
+  font-family: Roboto;
+  font-size: 14px;
+  color: #fff;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.form__submit {
+  width: 70px;
+  height: 40px;
+  background-color: #fff;
+  border: none;
+  color: #757575;
+}
