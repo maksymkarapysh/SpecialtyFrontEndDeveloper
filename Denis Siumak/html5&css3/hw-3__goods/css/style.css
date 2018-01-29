@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+}
+.goods__container {
+  width: 50%;
+  height: 300px;
+}
+.goods__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.goods__item {
+  display: block;
+  padding: 10px 0;
+  margin: 5px 0;
+  background-color: #a1a1a1;
+  text-align: center;
+}
+.bucket__container {
+  border: 2px solid gold;
+  width: 50%;
+  height: 300px;
+}
