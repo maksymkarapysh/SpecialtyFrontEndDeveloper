@@ -1,0 +1,10 @@
+<table class="table table-striped">
+  <tr *ngFor="let row of products">
+    <td>{{row.id}}</td>
+    <td>{{row.name}}</td>
+    <td>{{row.price}}</td>
+    <td>
+      <button (click)=delete(row)>x</button>
+    </td>
+  </tr>
+</table>
