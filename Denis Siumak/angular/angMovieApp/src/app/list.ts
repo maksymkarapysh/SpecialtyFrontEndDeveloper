@@ -42,7 +42,7 @@ export const MOVIES: Movie[] = [
     title: "Breaking In",
     year: "2018",
     releaseDate: "2018-05-11",
-    storyline: "A woman fights to protect her family during a home invasion.",
+    storyline: "The film follows single mother Shaun Russell (Union) who, after the sudden death of her father, takes her two children, Glover and Jasmine, to his Malibu mansion in order to settle his estate. But at the mansion are four criminal convicts intent on finding the deceased’s safe and making off with its goods.",
     imdbRating: 0,
     posterurl: "https://images-na.ssl-images-amazon.com/images/M/MV5BNWQ3OTRjNTUtM2JiNC00NTZjLTg4YjAtMWI5NmZhOGJlZDA5XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SY500_CR0,0,315,500_AL_.jpg"
   },

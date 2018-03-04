@@ -1,0 +1,18 @@
+<img [src]="movieItem.posterurl" [alt]="movieItem.id">
+<div class="movie-item__content">
+  <h2>{{movieItem.title}}</h2>
+  <p class="movie-item__description">
+    {{movieItem.storyline}}
+  </p>
+  <div class="movie-item__info info">
+    <p class="info__year">year
+      <span>{{movieItem.year}}</span>
+    </p>
+    <p class="info__release">release date
+      <span>{{movieItem.releaseDate}}</span>
+    </p>
+    <p class="info__imdb">IMDB
+      <span>{{movieItem.imdbRating}}</span>
+    </p>
+  </div>
+</div>

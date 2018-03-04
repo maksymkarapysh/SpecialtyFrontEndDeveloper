@@ -11,6 +11,7 @@ import { AppComponent,
 
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './footer/footer.component';
+import { MovieItemComponent } from './movie-item/movie-item.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     NavigationComponent,
     MainComponent,
     MovieListComponent,
-    FooterComponent
+    FooterComponent,
+    MovieItemComponent
   ],
   imports: [
     BrowserModule,
