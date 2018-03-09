@@ -1,9 +1,9 @@
 export class Movie {
-  id: string;
-  title: string;
-  year: string;
-  releaseDate: string;
-  storyline: string;
-  imdbRating: number;
-  posterurl: string;
+  constructor(public id: string,
+    public title: string,
+    public year: string,
+    public releaseDate: string,
+    public storyline: string,
+    public imdbRating: number,
+    public posterurl: string) {}
 }

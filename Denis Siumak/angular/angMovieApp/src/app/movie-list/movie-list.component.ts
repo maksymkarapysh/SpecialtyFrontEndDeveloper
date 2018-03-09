@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from "../movie";
-import { MOVIES } from "../list";
+//import { MOVIES } from "../list";
+import { MovieService } from "../movie.service";
 
 @Component({
   selector: 'app-movie-list',
@@ -8,25 +9,13 @@ import { MOVIES } from "../list";
   styleUrls: ['./movie-list.component.less']
 })
 export class MovieListComponent implements OnInit {
-  movies = MOVIES;
-
-  constructor() {
-
+  movies: Movie[] = this.movieService.getMovieList();
+  
+  constructor(private movieService: MovieService) {
    }
 
   ngOnInit() {
-    this.movieImageNo();
-    console.log(this.movies);
+    this.movieService.movieImageNo();
   }
-
-  movieImageNo(): void {
-    this.movies.forEach(function (item) {
-      if (item.posterurl == "") {
-        item.posterurl = "http://kasesesmu.lv/wp-content/uploads/2017/01/no-image.png";
-      } else {
-        item.posterurl = item.posterurl;
-      }
-    })
-  } 
 
 }

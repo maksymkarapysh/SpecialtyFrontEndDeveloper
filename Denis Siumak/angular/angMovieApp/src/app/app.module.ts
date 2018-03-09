@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MovieService } from './movie.service';
 
 import { AppComponent,
          HeaderComponent,
@@ -29,7 +30,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
