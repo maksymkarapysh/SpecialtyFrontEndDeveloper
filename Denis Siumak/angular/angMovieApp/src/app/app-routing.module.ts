@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes  } from '@angular/router';
 
-import { MainComponent, MovieListComponent } from './index';
+import { HomeComponent, MovieListComponent, MovieDetailComponent } from './index';
 
 @NgModule({
   imports: [RouterModule.forRoot([
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: MainComponent },
-    { path: 'movie-list', component: MovieListComponent }
+    { path: 'home', component: HomeComponent  },
+    { path: 'movie-list', component: MovieListComponent },
+    { path: 'movie/:id', component: MovieDetailComponent }
   ])],
   exports: [ RouterModule ]
 })

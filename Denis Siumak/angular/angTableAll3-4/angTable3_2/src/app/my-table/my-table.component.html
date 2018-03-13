@@ -1,0 +1,17 @@
+<label >Choose category
+  <select  [(ngModel)]="selected" (ngModelChange)="onSelect(selected)">
+    <option [selected]="true" value="">All category</option>
+    <option value="Category 1">Category 1</option>
+    <option value="Category 2">Category 2</option>
+    <option value="Category 3">Category 3</option>
+  </select>
+</label>
+
+<table class="table table-striped">
+  <tr *ngFor="let row of selectedProducts; let i = index">
+    <td>{{ i+1 }}</td>
+    <td>{{row.name}}</td>
+    <td>{{row.price}}</td>
+    <td>{{row.category}}</td>
+  </tr>
+</table>

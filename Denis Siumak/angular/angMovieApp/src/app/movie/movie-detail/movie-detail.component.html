@@ -1,0 +1,21 @@
+<div class="movie-item" *ngIf="movie">
+  <img [src]="movie.posterurl" alt="movie">
+  <div class="movie-item__content" >
+    <p class="movie-item__description">
+      {{movie.storyline}}
+    </p>
+    <div class="movie-item__info info">
+      <p class="info__year">year
+        <span>{{movie.year}}</span>
+      </p>
+      <p class="info__release">release date
+        <span>{{movie.releaseDate}}</span>
+      </p>
+      <p class="info__imdb">IMDB
+        <span>{{movie.imdbRating}}</span>
+      </p>
+    </div>
+  </div>
+  <button (click)="goBackLocation()" class="btn btn-info btn__back">back</button>
+</div>
+

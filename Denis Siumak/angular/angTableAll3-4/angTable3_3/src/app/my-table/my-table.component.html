@@ -1,0 +1,10 @@
+<table class="table table-striped">
+  <tr *ngFor="let row of products; let i = index">
+    <td>{{ i+1 }}</td>
+    <td>{{row.name}}</td>
+    <td>{{row.price}}</td>
+    <td>{{row.category}}</td>
+  </tr>
+</table>
+
+<app-add-product (onAddProduct)=updateProducts($event)></app-add-product>

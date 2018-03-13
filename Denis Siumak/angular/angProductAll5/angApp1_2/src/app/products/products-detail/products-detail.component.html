@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="products-detail col-md-12" *ngIf="product">
+      <ul>
+        <li>{{product.id}}</li>
+        <li>{{product.name}}</li>
+        <li>{{product.price}}</li>
+      </ul>
+    </div>
+    <button class="btn btn-success" (click)="goBackLocation()">back</button>
+  </div>
+</div>

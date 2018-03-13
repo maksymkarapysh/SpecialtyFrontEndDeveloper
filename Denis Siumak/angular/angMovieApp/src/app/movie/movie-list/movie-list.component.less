@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  flex: 1 0 auto;
+  margin-top: 50px;
+}
+.movie-item {
+  /* max-width: 1170px;
+  margin: 0 auto 25px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid fadeout(dimgray, 40);
+  border-bottom: 1px solid fadeout(dimgray, 40); */
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    img {
+      margin: auto;
+    }
+  }
+}

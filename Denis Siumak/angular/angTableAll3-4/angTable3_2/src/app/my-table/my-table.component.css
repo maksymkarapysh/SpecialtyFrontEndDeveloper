@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+}
+table {
+  margin: auto;
+  max-width: 1170px;
+}
+
+label {
+  width: 150px;
+  margin:  50px auto;
+  display: block;
+}
+
+select {
+  margin-top: 20px;
+}

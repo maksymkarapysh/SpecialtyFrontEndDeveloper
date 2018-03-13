@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <ul class="list col-4">
+      <li *ngFor="let item of productsList">
+        <a [routerLink]="[item.id]" routerLinkActive="activated"> {{item.name}} </a>
+      </li>
+    </ul>
+    <div class="col-8">
+      <router-outlet></router-outlet>
+    </div> 
+  </div>
+</div>

@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MovieService } from './movie.service';
+import { AppRoutingModule } from './app-routing.module';
+import { MovieModule } from './movie/movie.module';
 
 import { AppComponent,
          HeaderComponent,
          NavigationComponent,
-         MainComponent,
-         MovieListComponent  
+         FooterComponent,
+         HomeComponent
        } from "./index";
 
-import { AppRoutingModule } from './app-routing.module';
-import { FooterComponent } from './footer/footer.component';
-import { MovieItemComponent } from './movie-item/movie-item.component';
+
+
+
 
 
 @NgModule({
@@ -20,17 +21,16 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
     AppComponent,
     HeaderComponent,
     NavigationComponent,
-    MainComponent,
-    MovieListComponent,
     FooterComponent,
-    MovieItemComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MovieModule
   ],
-  providers: [MovieService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

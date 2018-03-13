@@ -1,0 +1,8 @@
+.products-detail ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin:  50px auto;
+  padding: 0;
+}

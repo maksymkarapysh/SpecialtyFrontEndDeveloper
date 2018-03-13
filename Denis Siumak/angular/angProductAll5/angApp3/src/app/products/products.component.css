@@ -1,0 +1,17 @@
+ul {
+  list-style-type: none;
+}
+.list li a {
+  cursor: pointer;
+  display: block;
+  transition: 0.3s;
+}
+.list li a:hover {
+  color: darkblue;
+  
+}
+
+.activated {
+  color: darkblue;
+  text-decoration: underline;
+}

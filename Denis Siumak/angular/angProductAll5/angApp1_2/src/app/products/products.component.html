@@ -1,0 +1,6 @@
+
+<ul  class="table table-striped">
+  <li *ngFor="let item of productsList">
+    <a [routerLink]="['/product', item.id]">{{item.name}}</a>
+  </li>
+</ul>

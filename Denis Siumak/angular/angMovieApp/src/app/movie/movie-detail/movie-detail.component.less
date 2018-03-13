@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  flex: 1 0 auto;
+}
+.movie-item {
+  position: relative;
+  display: flex;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 350px;
+    justify-content: space-around;
+    padding-right: 25px;
+    list-style-type: none;
+    @media screen and (max-width: 768px) {
+      padding: 0 25px;
+    } 
+    h2 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: lighter;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .btn__back {
+    position: absolute;
+    top: -57px;
+    left: 50px;
+  }
+}
+
+img {
+  object-fit: contain;
+  width: 250px;
+  margin-right: 25px;
+}
+
+.info {
+  text-transform: uppercase;
+  text-align: center;
+  span {
+    display: block;
+    color: darkred;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+}

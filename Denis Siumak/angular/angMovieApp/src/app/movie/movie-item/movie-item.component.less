@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  flex: 1 0 auto;
+}
+ .movie-item {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 25px;
+    list-style-type: none;
+    @media screen and (max-width: 768px) {
+      padding: 0 25px;
+    }
+    h2 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: lighter;
+      margin: 0;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
+    }
+  }
+  &__number {
+    margin-right: 10px;
+    display: inline-block;
+    width: 10px;
+  }
+}
+    
+
